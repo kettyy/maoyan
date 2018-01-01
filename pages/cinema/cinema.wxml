@@ -1,0 +1,30 @@
+<view class="option">
+  <navigator url="/pages/citys/citys">
+    <text>成都</text>
+    <text class='iconfont icon-arrfill_u-copy'></text>
+  </navigator>
+  <navigator url="/pages/search/search?type=cinema" class='right'>
+    <button class='iconfont icon-sousuo'> 找影院</button>
+  </navigator>
+</view>
+<navigator url="/pages/match/match?id={{cinema._id}}" hover-class="none" wx:for="{{list}}" wx:for-item="cinema" wx:key="{{}}" class='cinema'>
+  <view>
+    <view>
+    <text class='name'>{{cinema.name}}</text>
+    <text class='price'>{{cinema.minPrice}}元起</text>
+  </view>
+   <view>
+    <text class='address'>{{cinema.address}}</text>
+  </view>
+  <view style='display:flex;flex-wrap: wrap;'>
+    <view wx:for="{{cinema.server}}" wx:for-item="server" wx:key="{{}}" class='server {{server=="小吃" || server=="折扣卡"?"server_o":"server_b"}}'>{{server}}</view>
+  </view> 
+   <view wx:if="{{cinema.disCard.length}}" class='dis_card'>
+    <text class='card'>卡</text>
+    <text>开卡特惠，首单{{cinema.disCard[0].firstCut}}</text>
+  </view> 
+  </view>
+  <view>
+  <text class='distance'>{{cinema.distance}}</text>
+  </view>
+</navigator>

@@ -1,0 +1,12 @@
+/* pages/myCoupon/myCoupon.wxss */
+page{
+  background: #eee;
+}
+.temporary{
+  margin:50% auto 0;
+  text-align: center;
+}
+.icon-cat{
+  font-size: 100rpx;
+  color: #d33a32;
+}

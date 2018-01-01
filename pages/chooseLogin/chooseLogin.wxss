@@ -1,0 +1,5 @@
+/* pages/chooseLogin/chooseLogin.wxss */
+button{
+  background: transparent;
+  line-height: 60rpx;
+}

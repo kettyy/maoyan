@@ -1,0 +1,6 @@
+<view style="text-align: center;font-size:26rpx;margin:80rpx 0 60rpx;">--------- 推荐方式登录 ---------</view>
+
+<view style='padding:0 30rpx;'>
+  <button bindtap='clickPhone' hover-class="none" class='iconfont icon-shouji' style='font-size:30rpx;color:#fff;background:#1aad19;'> 手机号一键登录</button>
+  <button bindtap='chilkWeixin' hover-class="none" class='iconfont icon-weixin' style='margin-top:40rpx;font-size:30rpx;color:#1aad19;border:1rxp solid #1aad19;'> 微信账号登录</button>
+</view>

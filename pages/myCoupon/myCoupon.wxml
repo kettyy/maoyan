@@ -1,0 +1,8 @@
+<view wx:if="{{coupon.length}}"></view>
+
+<view wx:else class='temporary'>
+  <view>
+    <view class='iconfont icon-cat'></view>
+    <view style='font-size:32rpx;'>暂无可使用的优惠券</view>
+  </view>
+</view>

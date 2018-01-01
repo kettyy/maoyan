@@ -1,0 +1,57 @@
+/* pages/chooseSeat/chooseSeat.wxss */
+page{
+  background: #eee;
+}
+.optional{
+  color:#fbfbfb;
+}
+.no-optional{
+  color:#f04c41;
+}
+.selected{
+  color:#6bbd00;
+}
+.hidden{
+  visibility: hidden;
+}
+.seats>text{
+  padding: 0 10rpx;
+}
+.rows{
+  font-size: 24rpx;
+  background: rgba(0,0,0,.2);
+  position: absolute;
+  text-align: center;
+  top: 2rpx;
+  line-height: 50rpx;
+  color: #fff;
+  border-radius: 20rpx;
+  padding: 0 10rpx;
+}
+.hall{
+  margin:0 auto 30rpx;
+  text-align: center;
+  background:#ccc;
+  font-size:24rpx;
+  width:33%;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  line-height: 50rpx;
+}
+.footer{
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.footer text{
+  border: 1rpx solid #ccc;
+  width: 120rpx;
+  display: inline-block;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}

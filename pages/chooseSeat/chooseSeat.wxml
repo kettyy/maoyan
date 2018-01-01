@@ -1,0 +1,75 @@
+<!-- 头部场次信息 -->
+<view style='background:#fff;padding:0 30rpx;font-size:24rpx;'>
+  <view style='border-bottom:1rpx solid #ccc;padding:20rpx 0;'>
+    <view style="font-size:32rpx;">{{match.cinema[0].name}}</view>
+    <view style='color:#999;'>
+      <text>{{match.date}} </text>
+      <text>{{match.startTime}} </text>
+      <text>{{match.type}}</text>
+    </view>
+  </view>
+  <view style='display:flex;justify-content: center;align-items: center;line-height:80rpx;'>
+    <view style='margin-right:30rpx;'>
+      <text class='iconfont icon-zuowei2 optional'></text>
+      <text> 可选</text>
+    </view>
+    <view style='margin-right:30rpx;'>
+      <text class='iconfont icon-zuowei2 no-optional'></text>
+      <text> 不可选</text>
+    </view>
+    <view>
+      <text class='iconfont icon-zuoweiyuding1 selected'></text>
+      <text> 已选</text>
+    </view>
+  </view>
+</view>
+
+<!-- 座位图 -->
+<view>
+  <view class='hall'>{{match.hall[0].name}}</view>
+  <view bindtap='chooseSeat' style='position: relative;text-align: center;'>
+    <view wx:for="{{seats}}" wx:for-index="row" wx:key="{{}}" class='seats'>
+      <text wx:for="{{item}}" wx:for-item="seat" wx:for-index="col" wx:key="{{}}" data-row='{{row}}' data-col='{{col}}'>
+        <text wx:if="{{seat==0}}" class='iconfont icon-zuowei2 hidden'></text> 
+        <text wx:elif="{{seat==1}}" class='iconfont icon-zuowei2 optional'></text>
+        <text wx:elif="{{seat==2}}" class='iconfont icon-zuowei2 no-optional'></text>
+        <text wx:else class='iconfont icon-zuoweiyuding1 selected'></text>
+      </text>
+    </view>
+    <view class='rows'>
+      <view wx:for="{{rows}}" wx:key="{{}}" class='{{item?"":"hidden"}}'>{{item}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 选座购票 -->
+
+<view class='footer'>
+  <view style='font-size:24rpx;border-bottom:1rpx solid #ccc;padding-bottom:20rpx;'>
+    <view wx:if="{{chooseSeat.length}}">
+      <view style='color:#666;line-height:50rpx;'>已选座位</view>
+      <view bindtap='chooseSeat'>
+        <text wx:for="{{chooseSeat}}" wx:key="{{}}" data-row='{{item[0]}}' data-col='{{item[1]}}' data-type='cancel'>{{item[0]+1}}排{{item[1]+1}}座 x</text>
+      </view>
+    </view>
+    <view wx:else>
+      <view style='color:#666;line-height:50rpx;'>推荐座位</view>
+      <view bindtap='recommend'>
+        <text data-num='1'>1人</text>
+        <text data-num='2'>2人</text>
+        <text data-num='3'>3人</text>
+        <text data-num='4'>4人</text>
+      </view>
+    </view>
+  </view>
+  <view style='display:flex;justify-content: space-between;align-items: center;padding:20rpx 0;'>
+    <view wx:if="{{chooseSeat.length}}">
+      <view style='font-size:32rpx;color:#f04c41;'>{{match.price*chooseSeat.length}}元</view>
+      <view style='font-size:24rpx;color:#999;'>{{match.price}}x{{chooseSeat.length}}</view>
+    </view>
+    <view wx:else style='font-size:28rpx;color:#999;'>一次最多购买4张</view>
+    <view>
+      <button bindtap='clickBuy' style='font-size:28rpx;color:#fff;line-height:80rpx;background:{{chooseSeat.length?"rgba(255,153,0,1)":"rgba(255,153,0,.4)"}}'>{{chooseSeat.length?"确认选座":"请先选座"}}</button>
+    </view>
+  </view>
+</view>

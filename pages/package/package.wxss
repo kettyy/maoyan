@@ -1,0 +1,61 @@
+/* pages/package/package.wxss */
+page{
+  background: #eee;
+}
+.top{
+  position: relative;
+}
+.top_info{
+  position: absolute;
+  bottom: 10rpx;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0,0,0,.4); 
+  padding: 20rpx;
+}
+.buy{
+  background: #fff;
+  padding: 20rpx;
+}
+.icon-dui{
+  color: green;
+  font-size:28rpx;
+  margin-right: 40rpx;
+}
+.box{
+  background: #fff;
+  padding: 0 20px;
+  margin-top: 30rpx;
+}
+.title{
+  font-size: 28rpx;
+  color: #999;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.cinema_info{
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.cinema_info>view:first-child view:first-child{
+  font-size: 32rpx;
+}
+.cinema_info>view:first-child view:last-child{
+  font-size: 26rpx;
+  color: #999;
+  line-height: 50rpx;
+}
+.cinema_info>view:last-child{
+  padding: 0 30rpx;
+  border-left: 1rpx solid #ccc;
+}
+.cinema_info>view:last-child view:last-child{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 50rpx;
+}
+.icon-ditu{
+  color: blue;
+  font-size: 40rpx;
+}

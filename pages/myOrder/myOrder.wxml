@@ -1,0 +1,35 @@
+ <view wx:if="{{order.length}}">
+  <view wx:for="{{order}}" wx:key="{{}}" class='order'>
+    <view wx:if="{{item.match}}">{{item.match.cinema[0].name}}</view>
+    <view wx:else>{{item.cinemaName}}</view>
+    <view wx:if="{{item.match}}">
+      <view>
+        <image src='{{CMD+item.match.film[0].topUrl}}' style='width:150rpx;height:150rpx;margin-right:30rpx;'></image>
+      </view>
+      <view>
+        <view style='color:#000;'>{{item.match.film[0].name}} {{item.chooseSeat.length}}张</view>
+        <view style='font-size:22rpx;'>{{item.match.date}} {{item.match.startTime}}</view>
+      </view>
+    </view>
+    <view wx:else>
+      <view>
+        <image src='{{CMD+item.package.imageUrl}}' style='width:150rpx;height:150rpx;margin-right:30rpx;'></image>
+      </view>
+      <view>
+        <view style='color:#000;'>
+          <text wx:for="{{item.package.goodsList}}" wx:for-item="good" wx:key="{{}}">{{good.name}}{{good.num}}<text wx:if="{{index<item.package.goodsList.length-1}}">+</text></text>
+        </view>
+        <view style='font-size:22rpx;'>数量：1</view>
+      </view>
+    </view>
+    <view wx:if="{{item.match}}">总价：{{item.match.price*item.chooseSeat.length}}元</view>
+    <view wx:else>总价：{{item.package.totalPrice}}元</view>
+  </view>
+</view> 
+
+<view wx:else class='temporary'>
+  <view>
+    <view class='iconfont icon-cat'></view>
+    <view style='font-size:32rpx;'>暂无订单</view>
+  </view>
+</view>

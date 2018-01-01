@@ -1,0 +1,12 @@
+/* pages/myDisCards/myDisCards.wxss */
+page{
+  background: #eee;
+  text-align: center;
+}
+.temporary{
+  margin:50% auto 0;
+}
+.icon-cat{
+  font-size: 100rpx;
+  color: #d33a32;
+}

@@ -1,0 +1,22 @@
+<view style="padding:0 30rpx;text-align: center;">
+  <view class='point'>
+  <view wx:if="{{point}}">
+    <view>
+      <text style='font-size:50rpx;'>{{point}}</text>
+      <text style='font-size:26rpx;'>分</text>
+    </view>
+    <view style='font-size:24rpx;line-height:50rpx;'>{{evaluate}}</view>
+  </view>
+  <view wx:else style='font-size:22rpx;'>请滑动星星评分</view>
+  </view>
+  <view bindtap='showStart' style='margin-bottom:30rpx;'>
+    <text wx:for="{{starts}}" wx:for-item="start" wx:key="{{}}" data-point='{{index+1}}'>
+      <text wx:if="{{index%2==0}}" class='iconfont icon-pingfenzuo {{start?"start_y":"start_g"}}'></text>
+      <text wx:else class='iconfont icon-pingfenyou {{start?"start_y":"start_g"}}'></text>
+    </text>
+  </view>
+  <form bindsubmit="bindFormSubmit">
+    <textarea placeholder="快来说说你的看法吧（6-300个字）" name="textarea" maxlength="300" style='width:100%;font-size:26rpx;border:1rpx solid #ccc;text-align: left;padding:20rpx;box-sizing: border-box;height:200rpx;'/>
+    <button form-type="submit" style='background:#ffaa2a;color:#fff;font-size:28rpx;line-height:80rpx;margin-top:20rpx;'> 提交 </button>
+  </form>
+</view>

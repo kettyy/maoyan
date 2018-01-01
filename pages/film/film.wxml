@@ -1,0 +1,101 @@
+ <!-- <button bindtap="test">退出</button>  -->
+<view class="option">
+  <navigator url="/pages/citys/citys" hover-class="none">
+    <text>成都</text>
+    <text class='iconfont icon-arrfill_u-copy'></text>
+  </navigator>
+  <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">热映</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">待映</view>
+  <navigator url="/pages/search/search?type=movie" hover-class="none">
+    <text class='iconfont icon-sousuo'></text>
+  </navigator>
+</view>
+<!-- 热映 -->
+<swiper current="{{currentTab}}" bindchange="swiperTab">
+    <swiper-item>
+    <view wx:for="{{movies}}" wx:for-item="movie" wx:key="{{}}">
+      <view class='showing'>
+        <navigator url="/pages/video/video?id={{movie._id}}" hover-class="none">
+          <image style="width: 180rpx;height:260rpx;position: relative;" src="{{CMD+movie.topUrl}}">
+            <text class='iconfont icon-arrow-left-copy'></text>
+          </image>
+        </navigator>
+       <navigator url="/pages/film_details/film_details?id={{movie._id}}&index={{index}}&type=showing" hover-class="none" class="center">
+        <view>
+          <text class='name'>{{movie.name}}</text>
+        </view>
+        <view>
+          <text>{{movie.type}}</text>
+        </view>
+        <view>
+          <text class='actor'>主演:{{movie.actorArr[1].name}},{{movie.actorArr[2].name}},{{movie.actorArr[3].name}}</text>
+        </view>
+        <view>
+          <text style='color:#999;'>今天{{movie.match.cinema}}家影院放映{{movie.match.play}}场</text>
+        </view>
+       </navigator>
+       <view class='right'>
+        <text>{{movie.point}}分</text>
+        <navigator url="/pages/chooseCin/chooseCin?id={{movie._id}}&name={{movie.name}}" hover-class="none">
+          <button class='buy'>购票</button>
+        </navigator>
+       </view>
+      </view>
+    </view>
+      
+    </swiper-item>
+    <!-- 待映 -->
+    <swiper-item style="background:#eee;">
+      <view style='background:#fff;margin-bottom:20rpx;'>
+        <text style='font-size:28rpx;padding-left:20rpx;'>近期最受欢迎</text>
+        <scroll-view scroll-x style="height: 180px;">
+          <view class='popular'>
+            <navigator wx:for="{{movies}}" wx:for-item="movie" wx:key="{{}}" url="/pages/film_details/film_details?id={{movie._id}}&type={{movie.match.isMatch?'upComing':'want'}}" hover-class="none">
+              <image style="width: 160rpx;height:220rpx;position: relative;" src="{{CMD+movie.topUrl}}">
+                <text class='iconfont icon-xin1'></text>
+              </image>
+              <view style='font-size:24rpx;color:#000;'>
+                <text style='display:block;width: 160rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;'>{{movie.name}}</text>
+              </view>
+              <view>
+                <text>{{movie.want}}人想看</text>
+              </view>
+              <view>
+                <text>{{movie.releaseTime}}</text>
+              </view>
+            </navigator>
+          </view>
+        </scroll-view>
+      </view>
+      <view wx:for="{{movies}}" wx:for-item="movie" wx:key="{{}}" style="background:#fff;">
+        <view class='showing'>
+          <navigator url="/pages/video/video?id={{movie._id}}" hover-class="none">
+            <image style="width: 180rpx;height:260rpx;position: relative;" src="{{CMD+movie.topUrl}}">
+              <text class='iconfont icon-arrow-left-copy'></text>
+            </image>
+          </navigator>
+       <navigator url="/pages/film_details/film_details?id={{movie._id}}&type={{movie.match.isMatch?'upComing':'want'}}" hover-class="none" class="center">
+        <view>
+          <text class='name'>{{movie.name}}</text>
+        </view>
+        <view>
+          <text>{{movie.type}}</text>
+        </view>
+        <view>
+          <text class='actor'>主演:{{movie.actorArr[1].name}},{{movie.actorArr[2].name}},{{movie.actorArr[3].name}}</text>
+        </view>
+        <view>
+          <text style='color:#999;'>{{movie.releaseTime}}{{movie.place}}上映</text>
+        </view>
+       </navigator>
+       <view class='right'>
+        <text>{{movie.want}}人想看</text>
+        <navigator wx:if="{{movie.match.isMatch}}" url="/pages/chooseCin/chooseCin?id={{movie._id}}&name={{movie.name}}" hover-class="none">
+          <button class="advance">预售</button>
+        </navigator>
+         <button wx:else class='want iconfont icon-xin1' style='color:{{movie.wantSee?"#fff":"#d33a32"}};background:{{movie.wantSee?"#d33a32":"transparent"}};white-space:nowrap;' bindtap="clickWant" data-id='{{movie._id}}'> {{movie.wantSee?"已想看":"想看"}}</button> 
+       </view>
+      </view>
+      </view>
+    </swiper-item>
+</swiper>

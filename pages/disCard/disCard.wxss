@@ -1,0 +1,56 @@
+/* pages/disCard/disCard.wxss */
+page{
+  background: #eee;
+}
+.top{
+  text-align: center;
+  padding: 20rpx 0;
+  background: #fff;
+}
+.box{
+  background: #fff;
+  padding: 0 20rpx;
+  margin-top: 30rpx;
+  font-size: 26rpx;
+}
+.title{
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #ccc;
+  line-height: 80rpx;
+  color: #999;
+}
+.interests{
+  display: flex;
+  align-items: center;
+}
+.iconfont{
+  font-size: 60rpx;
+}
+.icon-qiaguizepeizhi{
+  color: #ff9900;
+}
+.icon-shijianshizhongdaojishi{
+  color: #fc675d;
+}
+.icon-kefu{
+  color: #fc675d;
+}
+.icon-huiyuantequanh{
+  color: #39ccc5;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background: #fcfcfc;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.footer button{
+  font-size: 30rpx;
+  color: #fff;
+  line-height: 80rpx;
+}

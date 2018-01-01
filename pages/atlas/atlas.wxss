@@ -1,0 +1,25 @@
+/* pages/atlas/atlas.wxss */
+.tab{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ccc;
+}
+.tab>view{
+  width: 20%;
+}
+.choose{
+  color: #d33a32;
+  border-bottom: 1rpx solid #d33a32;
+}
+.imgs{
+  display: flex;
+  flex-wrap: wrap;
+}
+.img{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 10rpx 10rpx 0 0;
+}

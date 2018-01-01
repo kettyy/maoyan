@@ -1,0 +1,63 @@
+/* pages/chooseCin/chooseCin.wxss */
+.tab{
+   display: flex;
+   /* justify-content: space-between;
+  text-align: center;  */
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.tab>view{
+   padding: 0 20rpx;
+   white-space: nowrap;
+}
+.choose{
+  color: #d33a32;
+  border-bottom: 1rpx solid #d33a32;
+}
+.cinema{
+  display: flex;
+  padding: 20rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ccc;
+}
+.cinema .name{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.cinema .address{
+  font-size: 28rpx;
+  color: #666;
+}
+.cinema .server{
+  font-size: 24rpx;
+  border-radius: 5rpx;
+  margin-left: 5rpx;
+  padding: 0 5rpx;
+}
+.cinema .server_b{
+  color: #73adbc;
+  border: 1rpx solid #73adbc;
+}
+.cinema .server_o{
+  color: #ffaa2a;
+  border: 1rpx solid #ffaa2a;
+}
+.match{
+  font-size: 24rpx;
+  color: #b7b7b7;
+  margin-top: 20rpx;
+}
+.bor_r{
+  border-right: 1rpx solid #b7b7b7;
+}
+.cinema .price{
+  font-size: 30rpx;
+  color: #d33a32;
+  margin-left: 10rpx;
+}
+.cinema .distance{
+  font-size: 26rpx;
+  color: #b7b7b7;
+}

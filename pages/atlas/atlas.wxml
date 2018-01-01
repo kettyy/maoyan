@@ -1,0 +1,14 @@
+<!--pages/atlas/atlas.wxml-->
+<view bindtap='changeTab' class='tab'>
+  <view class='{{choose=="all"?"choose":""}}' data-type='all'>全部</view>
+  <view class='{{choose=="Stills"?"choose":""}}' data-type='Stills'>剧照</view>
+  <view class='{{choose=="poster"?"choose":""}}' data-type='poster'>海报</view>
+  <view class='{{choose=="workimg"?"choose":""}}' data-type='workimg'>工作照</view>
+  <view class='{{choose=="newsimg"?"choose":""}}' data-type='newsimg'>新闻图片</view>
+</view>
+<!-- 图片 -->
+<view class='imgs'>
+  <view wx:for="{{imgs}}" wx:for-item="img" wx:key="{{}}" class='img'>
+    <image src="{{CMD+img}}" style='width:140rpx;height:140rpx;'></image>
+  </view>
+</view>

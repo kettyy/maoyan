@@ -1,0 +1,62 @@
+<view class="top">
+  <image src='{{CMD+disCard.imageUrl}}' style='width:95%;'></image>
+</view>
+
+<!-- 会员卡权益 -->
+<view class='box'>
+  <view class='title'>会员卡权益</view>
+  <view wx:for="{{disCard.server}}">
+    <view wx:if="{{item=='购票享超值会员价'}}" class='interests'>
+      <view class='iconfont icon-qiaguizepeizhi'></view>
+      <view style='margin-left:20rpx;padding:20rpx 0;border-bottom:1rpx solid #ccc;flex-grow: 1;'>
+        <view style='font-size: 28rpx;'>购票享超值会员价</view>
+        <view style='font-size:24rpx;color:#aaa;'>有效期内，在会员卡影院在线选座可享会员价，首单更优惠；仅限美团和猫眼app使用</view>
+      </view>
+    </view>
+    <view wx:elif="{{item=='休息区免费'}}" class='interests'>
+      <view class='iconfont icon-shijianshizhongdaojishi'></view>
+      <view style='margin-left:20rpx;padding:20rpx 0;border-bottom:1rpx solid #ccc;flex-grow: 1;'>
+        <view style='font-size: 28rpx;'>休息区免费</view>
+        <view style='font-size:24rpx;color:#aaa;'>持会员卡的用户可以免费享受影院的休息区，解释权归影院所有</view>
+      </view>
+    </view>
+    <view wx:elif="{{item=='客服优先'}}" class='interests'>
+      <view class='iconfont icon-kefu'></view>
+      <view style='margin-left:20rpx;padding:20rpx 0;border-bottom:1rpx solid #ccc;flex-grow: 1;'>
+        <view style='font-size: 28rpx;'>客服优先</view>
+        <view style='font-size:24rpx;color:#aaa;'>拨打客服1010-5335，会员电话将优先被接入</view>
+      </view>
+    </view>
+    <view wx:elif="{{item=='退改签特权'}}" class='interests'>
+      <view class='iconfont icon-huiyuantequanh'></view>
+      <view style='margin-left:20rpx;padding:20rpx 0;border-bottom:1rpx solid #ccc;flex-grow: 1;'>
+        <view style='font-size: 28rpx;'>退改签特权</view>
+        <view style='font-size:24rpx;color:#aaa;'>会员获得猫眼钻石V5会员退改签特权，可享受每月5次改签、3次退票的特权（仅限支持退改签影院使用）</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 使用须知 -->
+
+<view class='box' style='margin-bottom:150rpx;'>
+  <view class='title'>使用须知</view>
+  <view style='padding:20rpx 0;'>
+    <view wx:for="{{disCard.notes}}" wx:key="{{}}">{{item}}</view>
+  </view>
+</view>
+
+<!-- 底部购买 -->
+
+<view class='footer'>
+  <view>
+    <label style='font-size:26rpx;color:#999;'>
+      <checkbox checked="{{checked}}" bindtap="checkbox"/>
+      我已阅读并同意<text style='color:#fc675d;'>《会员卡协议》</text>
+    </label>
+    <view style='color:#fc675d;font-size:30rpx;line-height:60rpx;'>{{disCard.price}}元</view>
+  </view>
+  <view>
+    <button style='background:{{checked?"#fc675d":"#999"}}' bindtap='clickBuy'>我要开卡</button>
+  </view>
+</view>

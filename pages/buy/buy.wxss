@@ -1,0 +1,7 @@
+/* pages/buy/buy.wxss */
+page{
+  background: #eee;
+}
+.icon-quxiao{
+  font-size:20rpx;
+}

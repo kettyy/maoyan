@@ -1,0 +1,25 @@
+/* pages/writeCom/writeCom.wxss */
+.point{
+  height: 200rpx;
+  position: relative;
+  color:#ffaa2a;
+}
+.point>view{
+  position: absolute;
+  bottom: 20rpx;
+  width: 100%;
+}
+.icon-pingfenzuo{
+  margin-left: -8rpx;
+  font-size: 60rpx;
+}
+.icon-pingfenyou{
+  margin-left: -30rpx;
+  font-size: 60rpx;
+}
+.start_y{
+  color: #ffc303;
+}
+.start_g{
+  color: #ccc;
+}

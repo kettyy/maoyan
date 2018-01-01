@@ -1,0 +1,107 @@
+<!-- 观众评论头部 -->
+<view wx:if="{{type=='audComment'}}" class="a_top">
+    <view>所有评论（{{allLen}}条）</view>
+    <view bindtap='clickFilter'>
+      <view class='fliter {{filterType=="all"?"choose":""}}' data-type='all'>全部</view>
+      <view class='fliter {{filterType=="good"?"choose":""}}' data-type='good'>好评 {{goodLen}}</view>
+      <view class='fliter {{filterType=="bad"?"choose":""}}' data-type='bad'>差评 {{badLen}}</view>
+      <view class='fliter {{filterType=="buy"?"choose":""}}' data-type='buy'>购票 {{buyLen}}</view>
+      <view class='fliter {{filterType=="authentication"?"choose":""}}' data-type='authentication'>认证作者 {{authLen}}</view>
+      <view class='fliter {{filterType=="city"?"choose":""}}' data-type='city'>同城 {{cityLen}}</view>
+    </view>
+</view>
+<!-- 专业评论头部 -->
+<view wx:else style='background:url({{CMD+"imgs/2F11w58PICkUP_1024.jpg"}});' class='p_top'>
+  <view style='background:rgba(0,0,0,.5);height:100%;padding-top:60rpx;'>
+    <view style='font-size:40rpx;color:#ffaa2a;'>{{averagePoint}}</view>
+    <view><text style='color:#ffaa2a;'>{{allLen}}</text>位专业评委参与评分</view>
+    <view>《{{name}}》</view>
+  </view>
+</view>
+
+<!-- 观众评论部分 -->
+<view wx:if="{{type=='audComment'}}" bindtap='clickThumbs'>
+  <!-- 热门评论 -->
+ <view wx:if="{{filterType=='all' && hotComment.length}}">
+  <view class='a_title'>热门评论</view>
+  <view class='comments'>
+  <view wx:for="{{hotComment}}" wx:for-item="comment" wx:key="{{}}" class='comment'>
+    <image style="width: 60rpx;height:60rpx;border-radius:50%;" src="{{CMD+comment.portrait}}"></image>
+    <view>
+      <view>
+        <view>
+          <text class='name'>{{comment.name}}</text>
+          <text wx:if="{{comment.isBuy}}" class='buy'>购</text>
+        </view>
+        <view>
+        <text wx:for="{{comment.start}}" wx:for-item="start" wx:key="{{}}">
+          <text wx:if="{{index%2==0}}" class='iconfont icon-pingfenzuo {{start?"start_y":"start_g"}}'></text>
+          <text wx:else class='iconfont icon-pingfenyou {{start?"start_y":"start_g"}}'></text>
+        </text>
+        </view>
+      </view>
+      <view style='margin:20rpx 0;'>{{comment.comment}}</view>
+      <view style='display:flex;justify-content: space-between;'>
+        <text>{{comment.OffsetDays}}</text>
+        <text class='iconfont icon-dianzan' data-thumb='{{comment._id}}' data-type='audComment' data-hot='hot' style='color:{{comment.isThumb?"red":"#ccc"}}'>{{comment.thumbs}}</text>
+      </view>
+    </view>
+  </view>
+  </view>
+  
+</view> 
+
+<!-- 最新评论 -->
+  <view>
+    <view class='a_title'>最新评论</view>
+      <view class='comments'>
+      <view wx:for="{{comments}}" wx:for-item="comment" wx:key="{{}}" class='comment'>
+        <image style="width: 60rpx;height:60rpx;border-radius:50%;" src="{{CMD+comment.portrait}}"></image>
+      <view>
+        <view>
+          <view>
+            <text class='name'>{{comment.name}}</text>
+            <text wx:if="{{comment.isBuy}}" class='buy'>购</text>
+          </view>
+          <view>
+            <text wx:for="{{comment.start}}" wx:for-item="start" wx:key="{{}}">
+              <text wx:if="{{index%2==0}}" class='iconfont icon-pingfenzuo {{start?"start_y":"start_g"}}'></text>
+              <text wx:else class='iconfont icon-pingfenyou {{start?"start_y":"start_g"}}'></text>
+            </text>
+          </view>
+      </view>
+      <view style='margin:20rpx 0;'>{{comment.comment}}</view>
+      <view style='display:flex;justify-content: space-between;'>
+        <text>{{comment.OffsetDays}}</text>
+        <text class='iconfont icon-dianzan' data-thumb='{{comment._id}}' data-type='audComment' style='color:{{comment.isThumb?"red":"#ccc"}}'>{{comment.thumbs}}</text>
+      </view>
+    </view>
+  </view>  
+  </view>
+</view>  
+</view>
+
+
+<!-- 专业评论部分 -->
+<view wx:else bindtap='clickThumbs'>
+  <view class='p_title'>全部评论</view>
+  <view class='comments'>
+    <view wx:for="{{comments}}" wx:for-item="comment" wx:key="{{}}" class='comment'>
+    <image style="width: 60rpx;height:60rpx;border-radius:50%;" src="{{CMD+comment.portrait}}"></image>
+    <view>
+      <view style='display:flex;align-items: center;justify-content: space-between;'>
+        <view>
+          <view class='name'>{{comment.name}}</view>
+          <view style='color:#ccc;'>{{comment.title}}</view>
+        </view>
+        <text style='color:#ffaa2a;font-size:26rpx;'>{{comment.point}}分</text>
+      </view>
+      <view style='margin:20rpx 0;'>{{comment.comment}}</view>
+      <view style='display:flex;justify-content: space-between;'>
+        <text>{{comment.OffsetDays}}</text>
+        <text class='iconfont icon-dianzan' data-thumb='{{comment._id}}' data-type='proComment' style='color:{{comment.isThumb?"red":"#ccc"}}'>{{comment.thumbs}}</text>
+      </view>
+    </view>
+  </view>
+  </view>
+</view>

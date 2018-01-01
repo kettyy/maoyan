@@ -1,0 +1,29 @@
+<view class="list">
+<navigator url="/pages/myOrder/myOrder" hover-class="none" class='item'>
+    <text>我的订单</text>
+    <text class='iconfont icon-jiantou'></text>
+</navigator>
+<navigator url="/pages/myCoupon/myCoupon" hover-class="none" class='item'>
+    <text>优惠券</text>
+    <text class='iconfont icon-jiantou'></text>
+</navigator>
+<navigator url="/pages/myDisCards/myDisCards" hover-class="none" class='item'>
+    <text>影院会员卡</text>
+    <text class='iconfont icon-jiantou'></text>
+</navigator>
+</view>
+
+<view class="list">
+<navigator url="/pages/myWantSee/myWantSee" hover-class="none" class='item'>
+    <text>想看的电影</text>
+    <text class='iconfont icon-jiantou'></text>
+</navigator>
+<navigator url="/pages/myHaveSee/myHaveSee" hover-class="none" class='item'>
+    <text>看过的电影</text>
+    <text class='iconfont icon-jiantou'></text>
+</navigator>
+</view>
+
+<view class='footer'>
+  <text>©猫眼客服 客服电话：</text><text class='tel'>1010-5335</text>
+</view>

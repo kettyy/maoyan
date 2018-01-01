@@ -1,0 +1,24 @@
+/* pages/login/login.wxss */
+view{
+  padding: 0 40rpx;
+}
+label{
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+}
+input{
+  height: 90rpx;
+  padding: 0 30rpx;
+}
+button{
+  background: #d33a32;
+  color:#fff;
+  margin: 50rpx 0;
+}
+navigator{
+  font-size: 24rpx;
+  text-align: center;
+  color: #d33a32;
+  text-decoration: underline;
+}

@@ -1,0 +1,66 @@
+.option{
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  align-items: center;
+  background: #eee;
+  padding: 20rpx;
+}
+.option .right{
+  flex-grow: 1;
+  margin-left: 20rpx;
+}
+.option .right button{
+  background: #fff;
+  color: #ccc;
+  line-height: 50rpx;
+}
+.cinema{
+  display: flex;
+  padding: 20rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ccc;
+}
+.cinema .name{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.cinema .address{
+  font-size: 28rpx;
+  color: #666;
+}
+.cinema .server{
+  font-size: 24rpx;
+  border-radius: 5rpx;
+  margin-left: 5rpx;
+  padding: 0 5rpx;
+}
+.cinema .server_b{
+  color: #73adbc;
+  border: 1rpx solid #73adbc;
+}
+.cinema .server_o{
+  color: #ffaa2a;
+  border: 1rpx solid #ffaa2a;
+}
+.cinema .dis_card{
+  font-size: 24rpx;
+  padding-top: 20rpx;
+  color: #999;
+}
+.cinema .card{
+  color: #fff;
+  background: #a97be0;
+  padding: 5rpx 10rpx;
+  margin-right: 10rpx;
+}
+.cinema .price{
+  font-size: 30rpx;
+  color: red;
+  margin-left: 10rpx;
+}
+.cinema .distance{
+  font-size: 26rpx;
+  color: #b7b7b7;
+}

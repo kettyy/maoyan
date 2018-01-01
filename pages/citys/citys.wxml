@@ -1,0 +1,28 @@
+<view>
+  <view>
+    <view class='tetle'>定位城市</view>
+    <view class='box'>
+      <view class='hot'>成都</view>
+    </view>
+  </view>
+  <view>
+    <view class='tetle'>热门城市</view>
+    <view class='box'>
+      <view class='hot'>上海</view>
+      <view class='hot'>北京</view>
+      <view class='hot'>广州</view>
+      <view class='hot'>深圳</view>
+      <view class='hot'>武汉</view>
+      <view class='hot'>天津</view>
+      <view class='hot'>西安</view>
+      <view class='hot'>南京</view>
+      <view class='hot'>杭州</view>
+      <view class='hot'>成都</view>
+      <view class='hot'>重庆</view>
+    </view>
+  </view>
+  <view wx:for="{{citys}}" wx:for-item="city" wx:key="{{}}">
+    <view class='tetle'>{{city.initial}}</view>
+    <view wx:for="{{city.list}}" wx:key="{{}}" class='city'>{{item.name}}</view>
+  </view>
+</view>

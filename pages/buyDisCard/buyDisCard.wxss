@@ -1,0 +1,5 @@
+/* pages/buyDisCard/buyDisCard.wxss */
+page{
+  background: #eee;
+  text-align: center;
+}

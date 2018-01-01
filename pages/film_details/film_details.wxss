@@ -1,0 +1,162 @@
+/* pages/film_details/film_details.wxss */
+page{
+  background: #eee;
+}
+.top{
+  position: relative;
+  height: 500rpx;
+  overflow: hidden;
+}
+.top .bg{
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  filter:blur(30px);
+}
+.top .content{
+  position:absolute;
+  z-index: 2;
+   width: 100%; 
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.top .content_t{
+  display: flex;
+  align-items: center;
+}
+.top_img{
+  position: relative;
+}
+.icon-arrow-left-copy{
+  color: #fff;
+  border: 1rpx solid #fff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .6);
+  padding: 10rpx;
+  position: absolute;
+  top:40%;
+  left: 40%;
+}
+.top_det{
+  margin-left: 20rpx;
+}
+.top_det .name{
+  color: #fff;
+  font-size: 32rpx;
+}
+.top_det .e_name{
+  color: #fff;
+  font-size: 20rpx;
+}
+.top_det .point{
+  font-size: 28rpx;
+  color: #ffc303;
+}
+.top_det .comment{
+  font-size: 18rpx;
+  color: rgba(255, 255, 255, .6);
+}
+.top_det .type{
+  font-size: 24rpx;
+  color:rgba(255, 255, 255, .6);
+  line-height: 50rpx;
+}
+.icon-pingfenzuo{
+  margin-left: -8rpx;
+}
+.icon-pingfenyou{
+  margin-left: -16.5rpx;
+}
+.start_y{
+  color: #ffc303;
+}
+.start_g{
+  color: #ccc;
+}
+ .top .btns{
+   display: flex;
+   justify-content: space-between;
+   bottom: 20rpx;
+   margin-top: 30rpx;
+ }
+  .top .btns button{
+     flex-grow: 1; 
+    line-height: 60rpx;
+    background: rgba(255, 255, 255, .3);
+    width: 330rpx;
+    font-size: 24rpx;
+  }
+  .synopsis{
+    font-size: 28rpx;
+    padding: 20rpx;
+    background: #fff;
+  }
+  .trans{
+    transform: rotate(180deg)
+  }
+  .performers,.boxOffice,.stills,.audComment,.proComment{
+    padding: 20rpx;
+    background: #fff;
+    margin-top: 20rpx;
+  }
+  .actors,.rank,.still{
+    display: flex;
+  }
+.actors>view,.still>view{
+  margin-right: 20rpx;
+  font-size: 20rpx;
+  text-align: center;
+}
+.rank{
+  text-align: center;
+  justify-content: space-around;
+}
+.rank .number{
+  font-size: 46rpx;
+  color: red;
+}
+.rank .text{
+  font-size: 24rpx;
+  color: #bbb;
+}
+.comments{
+  display: flex;
+  font-size: 24rpx;
+  justify-content: space-between;
+  padding-top: 30rpx;
+}
+.comments>view{
+  width: 87%;
+  border-bottom: 1rpx solid #ccc;
+  padding-bottom: 30rpx;
+}
+.comments .name{
+  font-size: 28rpx;
+}
+.comments .buy{
+  font-size: 20rpx;
+  line-height: 30rpx;
+  border: 1rpx solid #73adbc;
+  color: #73adbc;
+  padding: 0 5rpx;
+  margin-left: 10rpx;
+  border-radius: 5rpx;
+}
+.all{
+  text-align: center;
+  color: #d33a32;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.icon-dianzan{
+  font-size: 24rpx;
+}
+.goBuy{
+  background: #d33a32;
+  color: #fff;
+  font-size: 34rpx;
+  line-height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

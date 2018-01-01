@@ -1,0 +1,13 @@
+<view wx:if="{{disCard.length}}">
+  <view wx:for="{{disCard}}" wx:key="{{}}" style="margin-top:10rpx;">
+    <image src='{{CMD+item.imageUrl}}' style='width:95%;height:400rpx;'></image>
+  </view>
+</view>
+
+<view wx:else class='temporary'>
+  <view>
+    <view class='iconfont icon-cat'></view>
+    <view style='font-size:32rpx;'>你还没有影院会员卡</view>
+    <navigator url="/pages/buyDisCard/buyDisCard" hover-class="none" style='color:#d33a32;font-size:34rpx;background: transparent;border:1rpx solid #d33a32;line-height:50rpx;width:50%;margin:50rpx auto 0;border-radius: 10rpx;' >开通更多影院会员卡</navigator>
+  </view>
+</view>

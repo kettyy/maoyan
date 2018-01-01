@@ -1,0 +1,25 @@
+<view wx:if="{{wantSee.length}}">
+  <view style='padding:0 20rpx;color:#999;font-size:26rpx;line-height:60rpx;'>想看{{wantSee.length}}部电影</view>
+  <view wx:for="{{wantSee}}" wx:for-item="movie" wx:key="{{}}" class='movie'>
+    <view>
+      <image src='{{CMD+movie.topUrl}}' style='width:120rpx;height:180rpx;'></image>
+    </view>
+    <view style='flex-grow: 1;margin-left:20rpx;'>
+      <view style='font-size:32rpx;color:#000;'>{{movie.name}}</view>
+      <view>{{movie.englishname}}</view>
+      <view>{{movie.type}}</view>
+      <view>{{movie.releaseTime}}{{movie.place}}上映</view>
+    </view>
+    <view style='font-size:30rpx;color:#ffb200;'>
+      <text>{{movie.want}}</text>
+      <text style='font-size:26rpx;'>人想看</text>
+    </view>
+  </view>
+</view>
+
+<view wx:else class='temporary'>
+  <view>
+    <view class='iconfont icon-cat'></view>
+    <view style='font-size:32rpx;'>暂无想看的电影</view>
+  </view>
+</view>

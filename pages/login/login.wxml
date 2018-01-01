@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<view>
+  <form bindsubmit="formSubmit">
+    <label>
+      <text class='iconfont icon-shouji'></text>
+      <input name="phone" placeholder="手机号" />
+    </label>
+    <label>
+      <text class='iconfont icon-mima1'></text>
+      <input name="pwd" placeholder="密码" password='true' />
+    </label>
+    <button form-type="submit">登录</button>
+  </form>
+</view>

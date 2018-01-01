@@ -1,0 +1,27 @@
+<scroll-view scroll-x style="border-bottom: 1px solid #ccc; ">
+<view bindtap='changeTab' class='tab'>
+  <view wx:for="{{dates}}" wx:key="{{}}" data-date='{{item.date}}' class='{{choose==item.date?"choose":""}}'>{{item.week}}</view>
+</view>
+</scroll-view>
+
+<navigator url="/pages/match/match?id={{cinema._id}}&movieID={{movieID}}" hover-class="none" wx:for="{{cinemas}}" wx:for-item="cinema" wx:key="{{}}" wx:if="{{cinema.matchs}}" class='cinema'>
+  <view>
+    <view>
+    <text class='name'>{{cinema.name}}</text>
+    <text class='price'>{{cinema.minPrice}}元起</text>
+  </view>
+   <view>
+    <text class='address'>{{cinema.address}}</text>
+  </view>
+  <view style='display:flex;flex-wrap: wrap;'>
+    <view wx:for="{{cinema.server}}" wx:for-item="server" wx:key="{{}}" class='server {{server=="小吃" || server=="折扣卡"?"server_o":"server_b"}}'>{{server}}</view>
+  </view> 
+   <view class='match'>
+    <text>近期场次：</text>
+    <text wx:for="{{cinema.matchs}}" wx:key="{{}}" class='{{index<cinema.matchs.length-1?"bor_r":""}}' style="padding:0 20rpx;">{{item}}</text>
+   </view>
+  </view>
+  <view>
+  <text class='distance'>{{cinema.distance}}</text>
+  </view>
+</navigator>

@@ -1,0 +1,23 @@
+/* pages/myHaveSee/myHaveSee.wxss */
+page{
+  background: #eee;
+}
+.temporary{
+  margin:50% auto 0;
+  text-align: center;
+}
+.icon-cat{
+  font-size: 100rpx;
+  color: #d33a32;
+}
+.movie{
+  display: flex;
+  padding: 20rpx;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff;
+  margin-bottom: 20rpx;
+  font-size:24rpx;
+  color: #666;
+  line-height: 48rpx;
+}

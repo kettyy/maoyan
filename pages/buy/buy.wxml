@@ -1,0 +1,69 @@
+<!-- 倒计时 -->
+<view style='background: #fff8ee;text-align: center;color: #ffaa2a;line-height:60rpx;font-size:24rpx;'>支付剩余时间：{{time}}</view>
+
+<!-- 订单信息 -->
+<view style='padding:0 20rpx;font-size:26rpx;line-height:50rpx;background: #fff;'>
+  <view style='font-size:30rpx;'>{{match.film[0].name}}</view>
+  <view style='color:red;'>{{date}} {{match.startTime}} ({{match.type}})</view>
+  <view>{{match.cinema[0].name}} {{match.hall[0].name}}</view>
+  <view>
+    <text wx:for="{{chooseSeat}}" wx:key="{{}}">{{item[0]}}排{{item[1]}}座 </text>
+  </view>
+  <view style='border-top:1rpx solid #ccc;display:flex;justify-content: space-between;line-height:80rpx;'>
+    <view>票价</view>
+    <view>
+      <text style='color:#999;font-size:24rpx;'>含服务费3.5元/张 </text>
+      <text style='color:red;'>{{match.price*chooseSeat.length}}元</text>
+    </view>
+  </view>
+</view>
+
+<!-- 折扣卡 -->
+<view style='margin-top:30rpx;font-size:28rpx;padding:0 20rpx;background: #fff;'>
+  <view style='display:flex;justify-content: space-between;line-height:80rpx;'>
+    <view>折扣卡</view>
+    <view style='color:#999;font-size:24rpx;'>办理折扣卡，首单{{disCard.firstCut}} <text style='color:red;font-size:28rpx;'>去开卡</text> <text class='iconfont icon-jiantou'></text></view>
+  </view>
+  <view style='display:flex;justify-content: space-between;line-height:80rpx;border-top:1rpx solid #ccc;'>
+    <view>活动和优惠券</view>
+    <view>无可用 <text class='iconfont icon-jiantou'></text></view>
+  </view>
+</view>
+
+<!-- 退改签须知 -->
+
+<view style='margin-top:30rpx;font-size:28rpx;padding:0 20rpx;background: #fff;'>
+  <view style='line-height:80rpx;'>退改签须知</view>
+  <view style='border-top:1rpx solid #ccc;font-size:24rpx;color:999;line-height:40rpx;padding:10rpx 0;'>
+    <view>不可改签</view>
+    <view>开场时间60分钟前，可免费退款</view>
+    <view>使用观影卡或享受减小吃特惠时，不可改签</view>
+  </view>
+</view>
+
+<!-- 手机号 -->
+<view style='margin:30rpx 0 100rpx;font-size:28rpx;padding:0 20rpx;background: #fff;line-height:80rpx;'>
+  <view>
+    <text>手机号 </text>
+    <text> {{user.tel}}</text>
+  </view>
+  <view style='border-top:1rpx solid #ccc;font-size:24rpx;color:#999;'>手机号仅用于生成订单，取票码不再以短信发送</view>
+</view>
+
+<!-- 支付 -->
+
+<view style='position: fixed;background: #fff;width:100%;bottom:0;padding:20rpx;box-sizing: border-box;'>
+  <view style='display:flex;justify-content: space-between;align-items: center;padding-bottom:20rpx;'>
+    <view style='color:#999;'>
+      <view class='iconfont icon-quxiao'> 该场次不可改签</view>
+      <view class='iconfont icon-quxiao'> 该场次不可退票</view>
+    </view>
+    <view>
+      <text style='font-size:24rpx;'>还需支付:</text>
+      <text style='font-size:32rpx;color:red;'>{{match.price*chooseSeat.length}}元</text>
+    </view>
+  </view>
+  <view>
+    <button bindtap='payment' style='line-height:80rpx;color:#fff;background:#ffaa2a;font-size:32rpx;'>确认支付</button>
+  </view>
+</view>

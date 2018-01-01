@@ -1,0 +1,82 @@
+/* pages/comments/comments.wxss */
+.a_top{
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+.a_top>view:last-child{
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 40rpx;
+}
+ .fliter{
+  padding: 0 20rpx;
+  margin:20rpx 20rpx 0 0;
+  border: 1rpx solid #d33a32;
+  border-radius: 5rpx;
+  color: #d33a32;
+  background: transparent;
+} 
+.choose{
+  background: #d33a32;
+  color: #fff;
+}
+.comments{
+  padding:0 30rpx;
+}
+.comment{
+  display: flex;
+  font-size: 24rpx;
+  justify-content: space-between;
+  padding-top: 30rpx;
+}
+.comment>view{
+  width: 87%;
+  border-bottom: 1rpx solid #ccc;
+  padding-bottom: 30rpx;
+}
+.comment .name{
+  font-size: 28rpx;
+}
+.comment .buy{
+  font-size: 20rpx;
+  line-height: 30rpx;
+  border: 1rpx solid #73adbc;
+  color: #73adbc;
+  padding: 0 5rpx;
+  margin-left: 10rpx;
+  border-radius: 5rpx;
+}
+.start_y{
+  color: #ffc303;
+}
+.start_g{
+  color: #ccc;
+}
+.icon-pingfenzuo{
+  margin-left: -8rpx;
+}
+.icon-pingfenyou{
+  margin-left: -16.5rpx;
+}
+.icon-dianzan{
+  font-size: 24rpx;
+  color: #ccc;
+}
+.a_title{
+  font-size: 24rpx;
+  background: #eee;
+  padding: 0 30rpx;
+  line-height: 60rpx;
+}
+.p_top{
+  height: 300rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+  overflow: hidden;
+}
+.p_title{
+  font-size: 28rpx;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #ccc;
+}

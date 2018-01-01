@@ -1,0 +1,7 @@
+<video src="{{CMD+src}}" style="width:100%;" autoplay></video>
+<view wx:for="{{movie.trailer}}" wx:key="{{}}" data-src='{{item}}' class='list' bindtap='clickPlay'>
+  <image style="width: 150rpx;height:100rpx;position: relative;" src='{{CMD+movie.imgs.mvimg}}'>
+    <text class='iconfont icon-arrow-left-copy'></text>
+  </image>
+  <text style='margin-left:30rpx;'>预告片 - {{index+1}}</text>
+</view>

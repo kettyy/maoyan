@@ -1,0 +1,158 @@
+<!-- 头部 -->
+<view class="top">
+  <image class='bg' src="{{CMD+movie.topUrl}}"></image>
+  <view>
+  <view class='content'>
+  <view class='content_t'>
+  <navigator url="/pages/video/video?id={{movie._id}}" hover-class="none" style="width: 220rpx;height:320rpx;background:url({{CMD+movie.topUrl}});background-size:220rpx 320rpx;" class='top_img'>
+      <text class='iconfont icon-arrow-left-copy'></text>
+    </navigator>
+    <view class='top_det'>
+      <view class='name'>{{movie.name}}</view>
+      <view class='e_name'>{{movie.englishname}}</view>
+      <view wx:if="{{type=='showing'}}">
+        <view>
+          <text wx:for="{{movie.start}}" wx:for-item="start" wx:key="{{}}">
+            <text wx:if="{{index%2==0}}" class='iconfont icon-pingfenzuo {{start?"start_y":"start_g"}}'></text>
+            <text wx:else class='iconfont icon-pingfenyou {{start?"start_y":"start_g"}}'></text>
+          </text>
+          <text class='point'>{{movie.point}}</text>
+        </view>
+        <view class='comment'>({{audComment.length+proComment.length}}人评)</view>
+      </view>
+      <view wx:else  class='point'>{{movie.want}}人想看</view>
+      <view class='type'>{{movie.type}}</view>
+      <view class='type'>{{movie.country}}/{{movie.duration}}</view>
+      <view class='type'>{{movie.releaseTime}}/{{movie.place}}上映</view>
+    </view>
+  </view>
+     <view class='btns'>
+      <button class='iconfont icon-xin' style='margin-right:20rpx;color:{{movie.wantSee?"#ffaa2a":"#ddd"}};' bindtap="clickWant"> {{movie.wantSee?"已想看":"想看"}}</button>
+      <button class='iconfont icon-xing1' bindtap='writeCom' style='color:{{movie.haveSee?"#ffaa2a":"#ddd"}};'> {{movie.haveSee?"已评分":"评分"}}</button>
+      </view>
+  </view>
+  </view>
+</view>
+<!-- 剧情介绍 -->
+<view class='synopsis'>
+  <view style='height:{{textIsOpen?"auto":"195rpx"}};overflow: hidden;'>{{movie.synopsis}}</view>
+  <view class='iconfont icon-arrow-down {{textIsOpen?"trans":""}}' style='text-align: center;color:#ccc;' bindtap="openText"></view>
+</view>
+<!-- 演职人员 -->
+<view class='performers'>
+  <view style='font-size:30rpx;line-height: 70rpx;'>演职人员</view>
+  <scroll-view scroll-x style="height: 120px;">
+  <view class='actors'>
+  <view wx:for="{{movie.actorArr}}" wx:for-item="actor" wx:key="{{}}">
+      <image style="width: 140rpx;height:180rpx;" src="{{CMD+actor.img}}"></image>
+      <view>{{actor.name}}</view>
+      <view style='color:#aaa;'>{{actor.part}}</view>
+    </view>
+  </view>
+  </scroll-view>
+</view>
+<!-- 票房 -->
+<view class='boxOffice' wx:if="{{type=='showing'}}">
+  <view style='font-size:30rpx;line-height: 70rpx;'>票房</view>
+  <view class='rank'>
+  <view>
+    <view class='number'>{{rank}}</view>
+    <view class='text'>昨日票房排行</view>
+  </view>
+  <view>
+    <view class='number'>{{movie.firstboxOffice}}</view>
+    <view class='text'>首周票房(万)</view>
+  </view>
+  <view>
+    <view class='number'>{{movie.boxOffice}}</view>
+    <view class='text'>累计票房(万)</view>
+  </view>
+  </view>
+</view>
+<!-- 视频和剧照 -->
+<view class='stills'>
+  <view style='font-size:30rpx;line-height: 70rpx;display:flex;justify-content: space-between;'>
+    <text style='flex-grow: 1;'>视频和剧照</text>
+    <navigator url="/pages/atlas/atlas?id={{movie._id}}" hover-class="none" style='font-size:26rpx;color:#aaa;'>
+    <text>{{movie.imgs.Stills.length+movie.imgs.poster.length+movie.imgs.workimg.length+movie.imgs.newsimg.length}}</text>
+    <text class='iconfont icon-jiantou' style='font-size:26rpx;'></text>
+    </navigator>
+  </view>
+  <scroll-view scroll-x style="height: 80px;">
+    <view class='still'>
+      <navigator url="/pages/video/video?id={{movie._id}}" hover-class="none">
+        <image style="width: 220rpx;height:160rpx;position: relative;margin-right:20rpx;" src="{{CMD+movie.imgs.mvimg}}">
+          <text class='iconfont icon-arrow-left-copy'></text>
+        </image> 
+      </navigator>
+      <view wx:for="{{movie.imgs.Stills}}" wx:for-item="pic" wx:key="{{}}">
+        <image style="width: 220rpx;height:160rpx;" src="{{CMD+pic}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 观众评论 -->
+<view class='audComment'>
+  <!-- 头部 -->
+  <view style='font-size:30rpx;line-height: 70rpx;display:flex;align-items: center;border-bottom:1rpx solid #ccc;'>
+    <text style='flex-grow: 1;'>观众评论</text>
+     <text style='font-size:26rpx;color:{{movie.haveSee?"#ffaa2a":"red"}};border:1rpx solid red;border-radius: 30rpx;line-height: 44rpx;padding:0 20rpx;width:80rpx;' bindtap='writeCom'>{{movie.haveSee?"已评论":"写短评"}}</text> 
+  </view>
+  <!-- 评论部分 -->
+  <view wx:for="{{partAudComment}}" wx:for-item="comment" wx:key="{{}}" class='comments' bindtap='clickThumbs'>
+    <image style="width: 60rpx;height:60rpx;border-radius:50%;" src="{{CMD+comment.portrait}}"></image>
+    <view>
+      <view>
+        <view>
+          <text class='name'>{{comment.name}}</text>
+          <text wx:if="{{comment.isBuy}}" class='buy'>购</text>
+        </view>
+        <view>
+        <text wx:for="{{comment.start}}" wx:for-item="start" wx:key="{{}}">
+          <text wx:if="{{index%2==0}}" class='iconfont icon-pingfenzuo {{start?"start_y":"start_g"}}'></text>
+          <text wx:else class='iconfont icon-pingfenyou {{start?"start_y":"start_g"}}'></text>
+        </text>
+        </view>
+      </view>
+      <view style='margin:20rpx 0;'>{{comment.comment}}</view>
+      <view style='display:flex;justify-content: space-between;'>
+        <text>{{comment.OffsetDays}}</text>
+        <text class='iconfont icon-dianzan' data-thumb='{{comment._id}}' data-type='partAudComment' style='color:{{comment.isThumb?"red":"#ccc"}}'>{{comment.thumbs}}</text>
+      </view>
+    </view>
+  </view>
+  <navigator url="/pages/comments/comments?name={{movie.name}}&type=audComment&id={{movie._id}}" hover-class="none" class='all'>查看全部{{audComment.length}}条观众评论</navigator>
+</view>
+
+<!-- 专业评论 -->
+<view class='proComment' style='margin-bottom:{{type!="want"?"80rpx":0}}'>
+  <!-- 头部 -->
+  <view style='font-size:30rpx;line-height: 70rpx;display:flex;align-items: center;border-bottom:1rpx solid #ccc;'>
+    <text style='flex-grow: 1;'>专业评论</text>
+  </view>
+  <!-- 评论部分 -->
+  <view wx:for="{{partProComment}}" wx:for-item="comment" wx:key="{{}}" class='comments' bindtap='clickThumbs'>
+    <image style="width: 60rpx;height:60rpx;border-radius:50%;" src="{{CMD+comment.portrait}}"></image>
+    <view>
+      <view style='display:flex;align-items: center;justify-content: space-between;'>
+        <view>
+          <view class='name'>{{comment.name}}</view>
+          <view style='color:#ccc;'>{{comment.title}}</view>
+        </view>
+        <text style='color:#ffaa2a;font-size:26rpx;'>{{comment.point}}分</text>
+      </view>
+      <view style='margin:20rpx 0;'>{{comment.comment}}</view>
+      <view style='display:flex;justify-content: space-between;'>
+        <text>{{comment.OffsetDays}}</text>
+        <text class='iconfont icon-dianzan' data-thumb='{{comment._id}}' data-type='partProComment' style='color:{{comment.isThumb?"red":"#ccc"}}'>{{comment.thumbs}}</text>
+      </view>
+    </view>
+  </view>
+  <navigator url="/pages/comments/comments?name={{movie.name}}&type=proComment&id={{movie._id}}" hover-class="none" class='all'>查看全部{{proComment.length}}条专业评论</navigator>
+</view>
+
+<!-- 跳转购票 -->
+<navigator url="/pages/chooseCin/chooseCin?id={{movie._id}}&name={{movie.name}}" hover-class="none">
+  <button wx:if="{{type!='want'}}" class='goBuy'>优惠购票</button>
+</navigator>
+

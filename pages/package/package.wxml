@@ -1,0 +1,63 @@
+<view class="top">
+  <image src='{{CMD+package.imageUrl}}' style='width:100%;'></image>
+  <view class='top_info'>
+    <view style='font-size:30rpx;'>{{cinema.name}}</view>
+    <text style='font-size:24rpx;' wx:for="{{package.goodsList}}" wx:for-item="goods" wx:key="{{}}">{{goods.name}}{{goods.num}}<text wx:if="{{index<package.goodsList.length-1}}">+</text></text>
+  </view>
+</view>
+
+<!-- 套餐价格 购买 -->
+<view class='buy'>
+  <view style='display:flex;justify-content: space-between;align-items: flex-end;border-bottom:1rpx solid #ccc;padding-bottom:30rpx;'>
+    <view>
+      <text style='font-size:24rpx;color:#ff3344;'><text style='font-size:50rpx;'>{{package.favourablePrice}}</text>元 </text>
+      <text style='font-size:24rpx;color:#999;white-space : nowrap;'> 影院价：{{package.totalPrice}}元</text>
+    </view>
+    <view>
+      <button style='white-space : nowrap;font-size:30rpx;background:#ff9900;line-height:80rpx;color:#fff;' bindtap='clickBuy'>立即购买</button>
+    </view>
+  </view>
+  <view style='padding:30rpx 0;display:flex;justify-content: space-between;align-items:center;'>
+    <view>
+      <text class='iconfont icon-dui' wx:for="{{package.server}}" wx:key="{{}}"> {{item}}</text>
+    </view>
+    <text class='iconfont icon-wode' style='font-size:26rpx;color:#999;white-space : nowrap;'> 已售{{package.sales}}</text>
+  </view>
+</view>
+
+<!-- 套餐详情 -->
+
+<view class="box">
+  <view class="title">套餐详情</view>
+  <view wx:for="{{package.goodsList}}" wx:key="{{}}" style="display:flex;justify-content: space-between;align-items:center;font-size:26rpx;color:#666;line-height:80rpx;">
+    <view style="width:80%;">{{item.name}}</view>
+    <view style="width:10%;">{{item.num}}</view>
+    <view style="width:10%;">￥{{item.price}}</view>
+  </view>
+</view>
+
+<!-- 购买须知 -->
+
+<view class="box">
+  <view class="title">购买须知</view>
+  <view wx:for="{{package.notes}}" wx:key="{{}}" style="font-size:26rpx;color:#666;padding:15rpx 0;">
+    <view>{{item.title}}</view>
+    <view style="color:#999;">{{item.text}}</view>
+  </view>
+</view>
+
+<!-- 影院信息 -->
+
+<view class="box">
+  <view class="title">影院信息</view>
+  <view class='cinema_info'>
+    <view style='flex-grow: 1;'>
+      <view>{{cinema.name}}</view>
+      <view>{{cinema.address}}</view>
+    </view>
+    <view style='text-align: center;'>
+      <view class='iconfont icon-ditu'></view>
+      <view style="white-space : nowrap;">地图</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,102 @@
+<!-- 头部 影院信息 -->
+ <view class="top">
+  <view style='flex-grow: 1;'>
+    <view>{{cinema.name}}</view>
+    <view>{{cinema.address}}</view>
+  </view>
+  <view style='text-align: center;'>
+    <view class='iconfont icon-ditu'></view>
+    <view>地图</view>
+  </view>
+</view> 
+
+<!-- 选择电影 -->
+ <view class='flims'>
+  <image style='position: absolute;width:100%;filter:blur(30px);' src="{{CMD+films[chooseMovieIndex].topUrl}}"></image>
+  <text class='iconfont icon-arrfill_u-copy'></text>
+  <scroll-view scroll-x scroll-with-animation="true" bindscroll="scroll">
+    <view class='movies' bindtap="clickM">
+      <view wx:for="{{films}}" wx:key="{{}}">
+       <image src="{{CMD+item.topUrl}}" class='{{index==chooseMovieIndex?"chooseM":""}}' style='width:160rpx;height:220rpx;margin:0 20rpx;' id="{{'movie_'+index}}" data-index='{{index}}'></image> 
+      </view>
+    </view>
+  </scroll-view>
+</view> 
+
+<!-- 电影信息 -->
+ <view class='movieInfo'>
+  <view>
+    <text>{{films[chooseMovieIndex].name}} </text>
+    <text style='color:#ffaa2a;'>{{films[chooseMovieIndex].point}}分</text>
+  </view>
+  <view>
+    <text>{{films[chooseMovieIndex].duration}}分钟</text>
+    <text>{{films[chooseMovieIndex].type}}</text>
+    <text>{{films[chooseMovieIndex].actorArr[1].name}}</text>
+  </view>
+</view> 
+
+<!-- 场次信息 -->
+ <view>
+  <scroll-view scroll-x style="border-bottom: 1px solid #ccc;background:#fff;">
+    <view bindtap='changeTab' class='tab'>
+      <view wx:for="{{dates}}" wx:key="{{}}" data-date='{{item.date}}' class='{{chooseDate==item.date?"choose":""}}'>{{item.week}}</view>
+    </view>
+  </scroll-view>
+  <navigator wx:if="{{cinema.disCard.length}}" url="/pages/disCard/disCard?id={{cinema.disCard[0]._id}}" hover-class="none" class='disCard'>
+    <view>折扣卡</view>
+    <view>购票享低价，首单{{cinema.disCard[0].firstCut}}</view>
+    <view>
+      <text>{{cinema.disCard[0].price}}元开卡</text>
+      <text class='iconfont icon-jiantou'></text>
+    </view>
+  </navigator>
+  <view>
+    <view wx:if="{{matchs.length}}" wx:for="{{matchs}}" wx:key="{{}}" class='match'>
+      <view>
+        <view>{{item.startTime}}</view>
+        <view style='font-size:24rpx;color:#999;'>{{item.endTime}}散场</view>
+      </view>
+      <view>
+        <view>{{item.type}}</view>
+        <view style='font-size:24rpx;color:#999;'>{{item.hall[0].name}}</view>
+      </view>
+      <view>
+        <view>
+          <text>{{item.price}}元</text>
+          <text wx:if="{{cinema.disCard.length}}" style='font-size:18rpx;border:1rpx solid #ffaa2a;color:#ffaa2a;border-radius: 5rpx;margin-left:5rpx;'>
+            <text style='background:#ffaa2a;color:#fff;'>折扣卡</text>
+            <text>{{item.price-cinema.disCard[0].discount}}元</text>
+          </text>
+        </view>
+        <view wx:if="{{cinema.disCard.length}}" style='font-size:24rpx;color:#999;'>折扣卡首单优惠</view>
+      </view>
+      <navigator url="/pages/chooseSeat/chooseSeat?id={{item._id}}" hover-class="none">
+        <button>购票</button>
+      </navigator>
+    </view>
+  </view>
+</view> 
+
+<!-- 观影套餐 -->
+
+<view wx:if="{{cinema.package.length}}" style="margin-top:30rpx;">
+  <view style='padding:0 30rpx;line-height:80rpx;font-size:32rpx;background:#fff;'>观影套餐({{cinema.package.length}})</view>
+  <navigator wx:for="{{cinema.package}}" wx:key="{{}}" url="/pages/package/package?id={{item._id}}&cinemaID={{cinema._id}}" hover-class="none" class='package'>
+    <view>
+      <image src="{{CMD+item.imageUrl}}" style='width:150rpx;height:150rpx;'></image>
+    </view>
+    <view style='flex-grow: 1;margin-left:20rpx;'>
+      <view style='font-size:30rpx;'>{{item.name}}</view>
+      <view style='line-height:70rpx;'>
+        <text class='font_24' wx:for="{{item.goodsList}}" wx:for-item="goods" wx:key="{{}}">{{goods.name}}{{goods.num}}<text wx:if="{{index<item.goodsList.length-1}}">+</text></text>
+      </view>
+      <view>
+        <text style='color:#d33a32;font-size:30rpx;'>{{item.favourablePrice}}元 </text>
+        <text class='font_24'>影院价：{{item.totalPrice}}元</text>
+      </view>
+    </view>
+    <view class='font_24'>已售{{item.sales}}</view>
+  </navigator>
+</view>
+

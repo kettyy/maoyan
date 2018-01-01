@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/film/film",
+    "pages/cinema/cinema",
+    "pages/mine/mine",
+    "pages/login/login",
+    "pages/citys/citys",
+    "pages/search/search",
+    "pages/film_details/film_details",
+    "pages/atlas/atlas",
+    "pages/comments/comments",
+    "pages/writeCom/writeCom",
+    "pages/chooseCin/chooseCin",
+    "pages/match/match",
+    "pages/video/video",
+    "pages/disCard/disCard",
+    "pages/package/package",
+    "pages/chooseSeat/chooseSeat",
+    "pages/chooseLogin/chooseLogin",
+    "pages/buy/buy",
+    "pages/myOrder/myOrder",
+    "pages/myCoupon/myCoupon",
+    "pages/myDisCards/myDisCards",
+    "pages/myWantSee/myWantSee",
+    "pages/myHaveSee/myHaveSee",
+    "pages/buyDisCard/buyDisCard"
+  ],
+  "tabBar": {
+    "selectedColor": "#d33a32",
+    "list": [
+      {
+        "pagePath": "pages/film/film",
+        "text": "电影",
+        "iconPath": "image/icon/film-b.png",
+        "selectedIconPath": "image/icon/film-r.png"
+      },
+      {
+        "pagePath": "pages/cinema/cinema",
+        "text": "影院",
+        "iconPath": "image/icon/cinema-b.png",
+        "selectedIconPath": "image/icon/cinema-r.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "image/icon/mine-b.png",
+        "selectedIconPath": "image/icon/mine-r.png"
+      }
+    ]
+  }
+}

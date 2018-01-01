@@ -1,0 +1,143 @@
+/* pages/match/match.wxss */
+page{
+  background: #eee;
+}
+.top{
+  display: flex;
+  padding: 30rpx;
+  align-items: center;
+  background: #fff;
+}
+.top>view:first-child view:first-child{
+  font-size: 32rpx;
+}
+.top>view:first-child view:last-child{
+  font-size: 26rpx;
+  color: #999;
+  line-height: 50rpx;
+}
+.top>view:last-child{
+  padding: 0 30rpx;
+  border-left: 1rpx solid #ccc;
+}
+.top>view:last-child view:last-child{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 50rpx;
+}
+.icon-ditu{
+  color: blue;
+  font-size: 40rpx;
+}
+.flims{
+  height: 300rpx;
+  position: relative;
+  overflow: hidden;
+}
+.icon-arrfill_u-copy{
+  position: absolute;
+  color:#fff;
+  transform: rotate(180deg);
+  bottom: -10rpx;
+  left: 49%;
+}
+.movies{
+  display: flex;
+  margin: 0 280rpx;
+  height: 300rpx;
+  align-items: center;
+}
+.movies>view:last-child{
+  padding-right: 270rpx;
+}
+.chooseM{
+  border: 1rpx solid #fff;
+  transform: scale(1.2);
+}
+.movieInfo{
+  text-align: center;
+  border-bottom: 1rpx solid #ccc;
+  background: #fff;
+}
+.movieInfo>view:first-child{
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.movieInfo>view:last-child{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+.movieInfo>view:last-child text{
+  padding: 0 20rpx;
+  border-right: 1rpx solid #999;
+}
+.movieInfo>view:last-child text:last-child{
+  border: none;
+}
+.tab{
+   display: flex;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 100rpx;
+  background: #fff;
+}
+.tab>view{
+   padding: 0 20rpx;
+   white-space: nowrap;
+}
+.choose{
+  color: #d33a32;
+  border-bottom: 1rpx solid #d33a32;
+}
+.disCard{
+  display: flex;
+  font-size: 24rpx;
+  padding: 20rpx;
+  justify-content: space-between;
+  background: #fff8ee;
+}
+.disCard>view:first-child{
+  background: #ffaa2a;
+  color: #fff;
+  padding: 0 10rpx;
+  border-radius: 5rpx;
+  margin-right: 30rpx;
+}
+.disCard>view:nth-child(2){
+  color: #ffaa2a;
+  flex-grow: 1;
+}
+.disCard>view:last-child{
+  color: #ccc;
+}
+.disCard>view:last-child .icon-jiantou{
+  font-size: 20rpx;
+}
+.match{
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ccc;
+  font-size: 34rpx;
+  background: #fff;
+}
+.match button{
+  background: #d33a32;
+  color: #fff;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+.package{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-top: 1rpx solid #ccc;
+  background: #fff;
+}
+.font_24{
+  font-size: 24rpx;
+  color: #999;
+}
